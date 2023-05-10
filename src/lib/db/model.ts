@@ -22,4 +22,7 @@ const schema = new mongoose.Schema({
 	},
 });
 
-export const Redirection = mongoose.model("redirection", schema);
+const is_dev = process.env.NODE_ENV === "development";
+const model_name = is_dev ? "[dev] redirection" : "redirection";
+
+export const Redirection = mongoose.model(model_name, schema);
