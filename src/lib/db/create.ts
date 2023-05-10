@@ -11,8 +11,9 @@ const nanoid = customAlphabet(alphabet, 6);
 export async function create_redirection(
 	url: string
 ): Promise<{ errors: string[] } | { shortcut: string }> {
+	const visits = 0;
 	const shortcut = nanoid();
-	const redirection = new Redirection({ shortcut, url });
+	const redirection = new Redirection({ shortcut, url, visits });
 
 	const error = redirection.validateSync();
 
