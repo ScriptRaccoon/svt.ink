@@ -1,10 +1,10 @@
 import mongoose from "mongoose";
 
 const url_regexp =
-	/^(https?:\/\/.)[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)$/g;
+	/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|www\.[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,}|www\.[a-zA-Z0-9]+\.[^\s]{2,})/gi;
 
 const url_message =
-	"You have to provide a valid URL. In particular, it should start with http(s).";
+	"You have to provide a valid URL. It has to start with http(s).";
 
 const schema = new mongoose.Schema({
 	shortcut: {
