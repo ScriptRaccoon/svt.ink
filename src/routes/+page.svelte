@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { enhance } from "$app/forms";
 	import { page } from "$app/stores";
+	import Loader from "$lib/components/Loader.svelte";
 	import type { ActionData } from "./$types";
 
 	export let form: ActionData;
@@ -14,11 +15,22 @@
 		show_confirmation = true;
 		setTimeout(() => (show_confirmation = false), 2000);
 	}
+
+	let loading = false;
+
+	$: {
+		if (form) loading = false;
+	}
 </script>
 
 <h2>Create short URL</h2>
 
-<form method="POST" autocomplete="off" use:enhance>
+<form
+	method="POST"
+	autocomplete="off"
+	use:enhance
+	on:submit={() => (loading = true)}
+>
 	<p>
 		<label
 			>URL<input
@@ -32,6 +44,10 @@
 		<button>Submit</button>
 	</p>
 </form>
+
+<!-- {#if loading} -->
+<Loader />
+<!-- {/if} -->
 
 <div aria-live="assertive">
 	{#each form?.errors ?? [] as error}
