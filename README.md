@@ -1,4 +1,4 @@
-# Shorty
+# Svt.Ink
 
 This is a URL shortener made with SvelteKit and MongoDB.
 
