@@ -45,9 +45,9 @@
 	</p>
 </form>
 
-<!-- {#if loading} -->
-<Loader />
-<!-- {/if} -->
+{#if loading}
+	<Loader />
+{/if}
 
 <div aria-live="assertive">
 	{#each form?.errors ?? [] as error}
