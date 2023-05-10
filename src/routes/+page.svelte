@@ -13,7 +13,7 @@
 	async function copy_url() {
 		await window.navigator.clipboard.writeText(short_url);
 		show_confirmation = true;
-		setTimeout(() => (show_confirmation = false), 2000);
+		setTimeout(() => (show_confirmation = false), 1200);
 	}
 
 	let loading = false;
@@ -23,9 +23,14 @@
 	}
 </script>
 
-<h2>Create short URL</h2>
+<p class="teaser">
+	Yet another tool to create short URLs. Notice that this is a hobby
+	project. We do not guarantee that the links will be stored
+	forever.
+</p>
 
 <form
+	class="form"
 	method="POST"
 	autocomplete="off"
 	use:enhance
@@ -41,7 +46,7 @@
 		</label>
 	</p>
 	<p>
-		<button>Submit</button>
+		<button>Create short URL</button>
 	</p>
 </form>
 
@@ -49,16 +54,15 @@
 	<Loader />
 {/if}
 
-<div aria-live="assertive">
+<div aria-live="assertive" class="error">
 	{#each form?.errors ?? [] as error}
-		<p class="error">{error}</p>
+		<p>{error}</p>
 	{/each}
 </div>
 
 <div aria-live="polite" class="result">
 	{#if form?.shortcut}
-		<p>Success! The short URL is:</p>
-
+		<div>Success! The short URL is:</div>
 		<p>
 			<a href={short_url}>
 				{short_url}
@@ -66,7 +70,7 @@
 		</p>
 
 		<div>
-			<button on:click={copy_url}>Copy</button>
+			<button on:click={copy_url}> Copy </button>
 		</div>
 
 		{#if show_confirmation}
@@ -78,10 +82,9 @@
 </div>
 
 <style>
-	h2 {
-		padding-bottom: 1.5rem;
-		font-weight: 600;
-		line-height: 1.2;
+	.teaser {
+		font-size: 1rem;
+		color: var(--dark-font-color);
 	}
 
 	button,
@@ -109,7 +112,7 @@
 	}
 
 	input {
-		padding: 0.2rem 0.4rem;
+		padding: 0.4rem;
 		display: block;
 		width: 100%;
 		background-color: var(--font-color);
@@ -122,11 +125,17 @@
 		outline-offset: 1px;
 	}
 
+	.form {
+		font-size: 1.25rem;
+		margin-top: 1rem;
+	}
+
 	.error {
 		color: var(--error-color);
 	}
 
 	.result {
+		font-size: 1.25rem;
 		padding-top: 1.5rem;
 	}
 
@@ -136,5 +145,6 @@
 
 	.confirmation {
 		font-size: 1rem;
+		margin-top: 0.25rem;
 	}
 </style>
