@@ -30,3 +30,41 @@ a:focus-visible {
 	outline: 0.1rem solid var(--font-color);
 	outline-offset: 0.2rem;
 }
+
+button,
+input {
+	font-family: inherit;
+	font-size: inherit;
+	border: none;
+	color: inherit;
+	border-radius: 0.25rem;
+}
+
+button {
+	background-color: var(--accent-color);
+	padding: 0.25rem 0.6rem;
+	cursor: pointer;
+}
+
+button:focus-visible {
+	outline: 1px solid var(--font-color);
+}
+
+button:disabled,
+input:disabled {
+	cursor: not-allowed;
+}
+
+input {
+	padding: 0.4rem;
+	display: block;
+	width: 100%;
+	background-color: var(--font-color);
+	color: var(--bg-color);
+	margin-block: 0.2rem;
+}
+
+input:focus-visible {
+	outline: 1px solid var(--font-color);
+	outline-offset: 1px;
+}

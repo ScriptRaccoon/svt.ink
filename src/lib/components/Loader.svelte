@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" aria-label="loading...">
 	<div class="loader">
 		<div />
 		<div />
