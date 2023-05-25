@@ -11,7 +11,7 @@ export const actions: Actions = {
 			setTimeout(() => {
 				res();
 			}, 2000)
-		);
+		); // remove later
 
 		if ("errors" in redirection)
 			return fail(400, { ...redirection, url });

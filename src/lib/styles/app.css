@@ -16,7 +16,6 @@ body {
 
 a {
 	text-decoration: underline;
-	color: inherit;
 	text-underline-offset: 0.2rem;
 }
 
@@ -25,31 +24,18 @@ a:focus-visible {
 	outline-offset: 0.2rem;
 }
 
-button,
-input {
-	font-family: inherit;
-	font-size: inherit;
-	border: none;
-	color: inherit;
-	border-radius: 0.25rem;
-}
-
 button {
+	border-radius: 0.25rem;
 	background-color: var(--accent-color);
 	padding: 0.25rem 0.6rem;
-	cursor: pointer;
 }
 
 button:focus-visible {
 	outline: 1px solid var(--font-color);
 }
 
-button:disabled,
-input:disabled {
-	cursor: not-allowed;
-}
-
 input {
+	border-radius: 0.25rem;
 	padding: 0.4rem;
 	display: block;
 	width: 100%;
@@ -61,4 +47,9 @@ input {
 input:focus-visible {
 	outline: 1px solid var(--font-color);
 	outline-offset: 1px;
+}
+
+button:disabled,
+input:disabled {
+	cursor: not-allowed;
 }
