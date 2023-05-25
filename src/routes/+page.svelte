@@ -26,7 +26,7 @@
 	}
 </script>
 
-<div class="opacity-80">
+<div class="text-light">
 	Yet another tool to create short URLs. Notice that this is a hobby
 	project. We do not guarantee that the links will be stored
 	forever.
@@ -84,7 +84,7 @@
 
 			{#if show_confirmation}
 				<div
-					class="opacity-80 mt-1"
+					class="text-light mt-1"
 					transition:slide={transition_options}
 				>
 					Copied short URL to clipboard!

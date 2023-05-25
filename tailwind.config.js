@@ -4,6 +4,7 @@ export default {
 	theme: {
 		colors: {
 			error: "#ffff00",
+			light: "#bbb",
 		},
 	},
 	plugins: [],
