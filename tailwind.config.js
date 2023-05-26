@@ -6,6 +6,7 @@ export default {
 			colors: {
 				error: "#ffff00",
 				light: "#bbb",
+				dark: "#131416",
 			},
 		},
 	},
