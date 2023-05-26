@@ -4,6 +4,7 @@
 	import { page } from "$app/stores";
 	import Loader from "$lib/components/Loader.svelte";
 	import type { ActionData } from "./$types";
+	import Button from "$lib/components/Button.svelte";
 
 	export let form: ActionData;
 
@@ -51,7 +52,7 @@
 		/>
 	</div>
 	<div>
-		<button disabled={loading}>Create short URL</button>
+		<Button disabled={loading}>Create short URL</Button>
 	</div>
 </form>
 
@@ -80,7 +81,7 @@
 				</a>
 			</div>
 
-			<button on:click={copy_url}>Copy</button>
+			<Button on:click={copy_url}>Copy</Button>
 
 			{#if show_confirmation}
 				<div
