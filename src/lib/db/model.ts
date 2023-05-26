@@ -30,7 +30,4 @@ const schema = new mongoose.Schema(
 	{ timestamps: true }
 );
 
-const is_dev = process.env.NODE_ENV === "development";
-const model_name = is_dev ? "[dev] redirection" : "redirection";
-
-export const Redirection = mongoose.model(model_name, schema);
+export const Redirection = mongoose.model("redirection", schema);
