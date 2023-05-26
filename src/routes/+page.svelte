@@ -49,14 +49,6 @@
 			value={form?.url ?? ""}
 			disabled={loading}
 		/>
-		<!-- <label for="url">URL</label>
-		<input
-			type="text"
-			id="url"
-			name="url"
-			value={form?.url ?? ""}
-			disabled={loading}
-		/> -->
 	</div>
 	<div>
 		<Button disabled={loading}>Create short URL</Button>

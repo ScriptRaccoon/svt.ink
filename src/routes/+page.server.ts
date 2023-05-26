@@ -7,12 +7,6 @@ export const actions: Actions = {
 		const form_data = await event.request.formData();
 		const url = form_data.get("url") as string;
 		const redirection = await create_redirection(url);
-		await new Promise<void>((res) =>
-			setTimeout(() => {
-				res();
-			}, 2000)
-		); // remove later
-
 		if ("errors" in redirection)
 			return fail(400, { ...redirection, url });
 		return { ...redirection, url };
