@@ -5,6 +5,7 @@
 	import Loader from "$lib/components/Loader.svelte";
 	import type { ActionData } from "./$types";
 	import Button from "$lib/components/Button.svelte";
+	import TextInput from "$lib/components/TextInput.svelte";
 
 	export let form: ActionData;
 
@@ -42,14 +43,20 @@
 	on:submit={() => (loading = true)}
 >
 	<div>
-		<label for="url">URL</label>
+		<TextInput
+			label="URL"
+			name="url"
+			value={form?.url ?? ""}
+			disabled={loading}
+		/>
+		<!-- <label for="url">URL</label>
 		<input
 			type="text"
 			id="url"
 			name="url"
 			value={form?.url ?? ""}
 			disabled={loading}
-		/>
+		/> -->
 	</div>
 	<div>
 		<Button disabled={loading}>Create short URL</Button>

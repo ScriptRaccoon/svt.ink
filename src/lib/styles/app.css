@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+	a {
+		text-decoration: underline;
+		text-underline-offset: 0.2rem;
+	}
+
+	a:focus-visible {
+		outline: 0.1rem solid #fff;
+		outline-offset: 0.2rem;
+	}
+}
+
 :root {
 	--accent-color: #d2430f;
 	--bg-color: #131416;
@@ -12,33 +24,4 @@ body {
 	line-height: 1.5;
 	color: var(--font-color);
 	background-color: var(--bg-color);
-}
-
-a {
-	text-decoration: underline;
-	text-underline-offset: 0.2rem;
-}
-
-a:focus-visible {
-	outline: 0.1rem solid var(--font-color);
-	outline-offset: 0.2rem;
-}
-
-input {
-	border-radius: 0.25rem;
-	padding: 0.4rem;
-	display: block;
-	width: 100%;
-	background-color: var(--font-color);
-	color: var(--bg-color);
-	margin-block: 0.2rem;
-}
-
-input:focus-visible {
-	outline: 1px solid var(--font-color);
-	outline-offset: 1px;
-}
-
-input:disabled {
-	cursor: not-allowed;
 }
