@@ -1,3 +1,4 @@
+import { connect_to_db } from "./connect";
 import { Redirection } from "./model";
 import { customAlphabet } from "nanoid";
 
@@ -11,6 +12,11 @@ const nanoid = customAlphabet(alphabet, 6);
 export async function create_redirection(
 	url: string
 ): Promise<{ errors: string[] } | { shortcut: string }> {
+	const connection = await connect_to_db();
+	if (!connection) {
+		return { errors: ["No database connection"] };
+	}
+
 	const visits = 0;
 	const shortcut = nanoid();
 	const redirection = new Redirection({ shortcut, url, visits });
@@ -24,5 +30,6 @@ export async function create_redirection(
 	}
 
 	await redirection.save();
+
 	return { shortcut };
 }
