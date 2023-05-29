@@ -1,19 +1,29 @@
-<div class="flex justify-center py-2" aria-label="loading...">
-	<div
-		class="ripple w-12 h-12 absolute rounded-full border-[0.2rem] border-white"
-	/>
-	<div
-		class="ripple w-12 h-12 absolute rounded-full border-[0.2rem] border-white"
-	/>
+<div class="loader" aria-label="loading...">
+	<div class="wave" />
+	<div class="wave" />
 </div>
 
 <style>
-	.ripple {
-		animation: ripple 1.6s ease-out infinite;
+	.loader {
+		--size: 3rem;
+		--duration: 1.6s;
+		display: flex;
+		justify-content: center;
+		height: var(--size);
+		margin-block: 0.5rem;
 	}
 
-	.ripple:nth-child(2) {
-		animation-delay: -0.8s;
+	.wave {
+		width: var(--size);
+		height: var(--size);
+		position: absolute;
+		border-radius: 50%;
+		border: 0.2rem solid white;
+		animation: ripple var(--duration) ease-out infinite;
+	}
+
+	.wave:nth-child(2) {
+		animation-delay: calc(-0.5 * var(--duration));
 	}
 
 	@keyframes ripple {
