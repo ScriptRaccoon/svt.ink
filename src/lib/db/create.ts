@@ -17,12 +17,16 @@ export async function create_redirection(
 	const error = redirection.validateSync();
 
 	if (error) {
-		const error_objects = Object.values(error.errors);
-		const errors = error_objects.map((e) => e.message);
-		return { errors };
+		return {
+			errors: Object.values(error.errors).map((e) => e.message),
+		};
 	}
 
-	await redirection.save();
-
-	return { shortcut };
+	try {
+		await redirection.save();
+		return { shortcut };
+	} catch (e) {
+		console.log(e);
+		return { errors: ["Internal server error."] };
+	}
 }
