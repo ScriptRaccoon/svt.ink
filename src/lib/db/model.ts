@@ -1,10 +1,18 @@
+import { PUBLIC_DOMAIN } from "$env/static/public";
 import mongoose from "mongoose";
 
 const url_regexp =
 	/(https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9][a-zA-Z0-9-]+[a-zA-Z0-9]\.[^\s]{2,}|https?:\/\/(?:www\.|(?!www))[a-zA-Z0-9]+\.[^\s]{2,})/gi;
 
-const url_message =
-	"You have to provide a valid URL. It has to start with http(s).";
+const url_message = `You have to provide a valid URL. It has to start with http(s). Also, it is not allowed to start with ${PUBLIC_DOMAIN}.`;
+
+function url_validator(url: string): boolean {
+	return (
+		!!url.match(url_regexp) &&
+		!url.startsWith("http://" + PUBLIC_DOMAIN) &&
+		!url.startsWith("https://" + PUBLIC_DOMAIN)
+	);
+}
 
 const schema = new mongoose.Schema(
 	{
@@ -17,7 +25,7 @@ const schema = new mongoose.Schema(
 			type: String,
 			required: [true, "URL is required."],
 			validate: {
-				validator: (url: string) => url.match(url_regexp),
+				validator: url_validator,
 				message: () => url_message,
 			},
 		},
