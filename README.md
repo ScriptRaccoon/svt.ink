@@ -4,6 +4,8 @@ This is a URL shortener made with SvelteKit and MongoDB.
 
 https://svtink.netlify.app/
 
+(The previous URL, https://svt.ink, will not work anymore.)
+
 ## Schema
 
 Redirection Schema in MongoDB:
